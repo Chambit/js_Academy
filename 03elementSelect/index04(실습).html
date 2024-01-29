@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3><bold>자바스크립트 카운트(인라인 이벤트와 this unnerHTML value 속성을 이용해서 카운트처리하세요)</bold></h3>
+
+    <input type="number" id="num" value="0">
+    <button id="plus" onclick="plus();">+</button>
+    <button id="minus" onclick="minus();">-</button>
+    
+
+    <script>
+        var num = document.getElementById("num");
+        function plus(){
+            num.value++;
+        }
+        function minus(){
+            if( num.value == 0 ){
+                alert("0밑으론 못내려요~")
+                return;
+            }
+            num.value--;
+        }
+    </script>
+
+    <hr>
+
+    1. 예약버튼 클릭시 좌석이 최소 한개이상 체크되어있지 않다면 경고창을 띄우는 코드를 작성하세요.
+    2. 체크된 값은 예약확인란에 출력해주세요.
+    3. 힌트 - 버튼클릭시 배열에 값을 저장하고, 화면에는 문자열로 만들어 출력 합니다.😄<br>
+
+    좌석: <input class="checkbox" type="checkbox" value="1" onclick="checkArray(this);">1
+    <input class="checkbox" type="checkbox"  value="2" onclick="checkArray(this);">2
+    <input class="checkbox" type="checkbox"  value="3" onclick="checkArray(this);">3
+    <input class="checkbox" type="checkbox"  value="4" onclick="checkArray(this);">4
+    <input class="checkbox" type="checkbox"  value="5" onclick="checkArray(this);">5
+    <input class="checkbox" type="checkbox"  value="6" onclick="checkArray(this);">6
+    <input class="checkbox" type="checkbox"  value="7" onclick="checkArray(this);">7
+    <input class="checkbox" type="checkbox"  value="8" onclick="checkArray(this);">8
+    <input class="checkbox" type="checkbox"  value="9" onclick="checkArray(this);">9
+    <input class="checkbox" type="checkbox"   value="10" onclick="checkArray(this);">10<br>
+
+    <button id="submit" onclick="sub();">예약</button><br>
+    <h1 id="title">예약번호:</h1><br>
+    <p id="p1"></p>
+    
+    <script>
+        var submit = document.getElementById("submit");
+        var check = document.getElementsByClassName("checkbox");
+        var arr = new Array();
+        var p1 = document.getElementById("p1");
+        function checkArray (a) {
+            if(a.checked){
+                arr.push(a.value);
+            } else {
+                arr.pop(a.value);
+            }
+        }
+        submit.onclick = function sub () {
+            var string = '';
+            for( var i in arr ){
+                arr.sort();
+                string += arr[i] + "번";
+            }
+            p1.innerHTML = string;
+            
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    아이디나 비밀번호가 변경 될때 마다 다음을 구현하세요<br>
+    힌트: 이벤트 onchange, onkeyup <br>
+
+
+    아이디<input type="text" id="id" style="border: 3px solid red;">
+    <h3 id="a"></h3>
+
+<script>
+   var id = document.getElementById("id");
+   var a = document.getElementById("a");
+
+   id.onkeyup = function() {
+    if(id.value.length < 4){
+        a.innerHTML = "4글자 이상"
+        id.style.border = "3px solid red"
+    } else {
+        a.innerHTML = "";
+        id.style.border = "3px solid green"
+    }
+
+   }
+</script>
+
+</body>
+</html>
