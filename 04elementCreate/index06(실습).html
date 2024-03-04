@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    할일 삭제 기능은 button을 생성할 때 이벤트를 주면 됩니다.
+    input은 지우는게 아니라, display: none 으로 제어하세요
+    <h3>할일 목록 만들기</h3><br>
+    <h2 id="hi"></h2>
+
+    <input type="text" class="name" placeholder="이름을 적으세요"><button id="nameBtn">확인</button><br>
+    <input type="text" class="todo" placeholder="당신의 할일을 적으세요"> <button id="btn">확인</button>
+
+    <ul class="ulist">
+
+    </ul>
+
+    <script>
+        var nBtn = document.getElementById("nameBtn");
+        var ulist = document.querySelector(".ulist");
+        var hi = document.getElementById("hi");
+        
+        var btn = document.getElementById("btn");
+        
+        
+        nBtn.onclick = function () {
+            var name = document.querySelector(".name");
+            hi.innerHTML = name.value + "님 안녕하세요";
+
+            nameBtn.style = "display: none";
+            name.style = "display: none";
+        }
+
+        var arr = new Array();
+        btn.onclick = function () {
+            var todo = document.querySelector(".todo");
+            var to = todo.value;
+
+
+
+                var li = document.createElement("li")
+    
+                li.innerHTML = to + "<button type='button' onclick ='remove(this)'>X</button>";
+                ulist.appendChild(li);
+        }
+
+        function remove(dd) {
+            dd.parentElement.remove();
+        }
+
+    </script>
+
+</body>
+</html>
